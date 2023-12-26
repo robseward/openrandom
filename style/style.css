@@ -7215,6 +7215,7 @@ blockquote p {
   display: block;
   line-height: 2.0625rem;
   padding: 0;
+  z-index: 999;
   color: white;
   position: relative;
   -ms-transform: translate(0, 0);
