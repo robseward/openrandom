@@ -1,0 +1,12 @@
+.contain-to-grid .top-bar {
+  max-width: 46.875rem;
+}
+
+.contain-to-grid .top-bar {
+  margin-bottom: 0;
+}
+
+.top-bar {
+  background-color: #444444;
+  height: 5.3rem;
+}
