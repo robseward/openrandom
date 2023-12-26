@@ -10,154 +10,167 @@
 </head>
 
 <body>
-  <div class="inner-wrap">
-    <nav class="tab-bar show-for-small">
-      <a class="left-off-canvas-toggle menu-icon" href="#">
-        <span>OPENRANDOM.ORG</span>
-      </a>
-    </nav>
-    <div class="contain-to-grid sticky top-bar hide-for-small">
-      <nav class="top-bar hide-for-small">
-        <ul class="title-area">
-          <li class="name">
-            <h1><a href="/index">OPENRANDOM.ORG</a></h1>
-          </li>
-        </ul>
-        <section class="top-bar-section">
-          <ul class="left">
-            <li><a href="/index">ABOUT</a></li>
-            <li><a href="https://www.tindie.com/products/robseward/z1ffer/">BUY</a>
-            </li>
-            <li><a href="/Resources">RESOURCES</a></li>
-            <li><a href="/contact">CONTACT</a></li>
-            <!-- <li><a href="/blog">BLOG</a></li> -->
-          </ul>
-        </section>
+  <div class="off-canvas-wrap">
+    <div class="inner-wrap">
+      <nav class="tab-bar show-for-small">
+        <a class="left-off-canvas-toggle menu-icon" href="#">
+          <span>OPENRANDOM.ORG</span>
+        </a>
       </nav>
-    </div>
-    <aside class="left-off-canvas-menu">
-      <ul class="off-canvas-list">
-        <li class="divider"></li>
-        <li><a href="/index">About</a></li>
-        <li class="divider"></li>
-        <li><a href="https://www.tindie.com/products/robseward/z1ffer/">Buy</a>
-        </li>
-        <li class="divider"></li>
-        <li><a href="/Resources">Resources</a></li>
-        <li class="divider"></li>
-        <li><a href="/contact">Contact</a></li>
-        <!-- <li class="divider"></li>
-    <li><a href="/blog">Blog</a></li> -->
-      </ul>
-    </aside>
-    <a class="exit-off-canvas"></a>
-    <div class="nav-divider"></div>
-
-    <div class="row">
-      <div class="small-12 large-12 columns" id="main-content-container">
-        <p>
-          <img alt="Ziffer head on far" data-at2x="/assets/ziffer-head-on-far@2x-749c3754ce1cc7f05a9838919c1eb505.jpg"
-            src="./images/ziffer-head-on-far@2x.jpg">
-          <br><br>
-        </p>
-
-        <h4>WHAT IS IT?</h4>
-
-        <p>Z1FFER is an open source hardware random number generator.</p>
-
-        <h4>WHAT IS IT FOR?</h4>
-
-        <p>Cryptography depends on high-quality random numbers that originate from a truly random source. When you go to
-          your bank's website, for example, your computer must automatically generate a random "password" (known as a
-          key)
-          in order to create an encrypted connection with the bank (this is an oversimplification; <a
-            href="http://how2ssl.com/articles/introduction_to_ssl/">this</a>
-          website has more detailed information). Your computer could generate this key using an algorithm alone, but
-          the
-          problem with this approach is that if someone knows the algorithm, they can theoretically predict the key and
-          crack the encryption between you and your bank. Therefore many computers have a hardware random number
-          generator
-          that uses a natural source of entropy to generate irreproducible randomness.</p>
-
-        <p>However, the Snowden documents revealed that the <a
-            href="http://www.nytimes.com/interactive/2013/09/05/us/documents-reveal-nsa-campaign-against-encryption.html">NSA
-            actively works to insert vulnerabilities into commercial encryption systems</a>, and one way of undermining
-          encryption systems is to tamper with their random number generation. In 2005 the NSA published a random number
-          generating algorithm with the recommendation that people use it in their systems. Later, security researchers
-          revealed the NSA method allowed for the existence of a secret key, which, if known, would allow them to
-          predict
-          the output of the algorithm, which would in turn allow the NSA to break any encryption using their recommended
-          algorithm.</p>
-
-        <p>Additionally, there is a long list of catastrophic security breaches that were due to malfunctioning (or
-          inadequate, or compromised) random number generators [<a
-            href="http://en.wikipedia.org/wiki/Random_number_generator_attack#Prominent_examples">link</a>,
-          <a
-            href="http://www.computerworld.com/s/article/9048438/Microsoft_confirms_that_XP_contains_random_number_generator_bug">link</a>,
-          <a href="http://esj.com/articles/2012/02/27/rsa-key-kerfuffle.aspx">link</a>,
-          <a href="https://freedom-to-tinker.com/blog/kroll/software-transparency-debian-openssl-bug/">link</a>].
-        </p>
-
-        <h4>HOW CAN Z1FFER HELP?</h4>
-
-        <p>Z1FFER is designed to deliver random data of the highest quality, have high throughput, and work with
-          Arduino.
-          It is an easily accessible platform for experimenting with entropy for security research and scientific
-          purposes. It is not designed to be self-monitoring or secure against side-channel attacks—things that
-          governments require for certification in military and government use. It is, however, intended to be the first
-          step towards a system that is hardened and up to these standards. It’s also cheap.</p>
-
-        <h4>WHY OPEN SOURCE?</h4>
-
-        <p>The problem with closed-source random number generators is that they are hard to trust–we don’t know what
-          they
-          are doing. Z1FFER will be open to the scrutiny of the public. Weaknesses in my approach will hopefully be
-          pointed out and the device made better. The goal is to create a random number generator whose output is
-          impossible to predict and highly trusted.</p>
-
-        <h4>WHY SHOULD I GET ONE?</h4>
-
-        <p>Because you are cursed with the inclination to be interested in this kind of thing.</p>
-
-        <h4>WHY SHOULD I <em>NOT</em> GET ONE?</h4>
-
-        <p>Z1FFER is intended for developers and hobbyists. It is not particularly user-friendly; it essentially pours a
-          stream of randomness into your computer via USB. It does not come with any software to help integrate this
-          randomness stream with the security systems in your computer/server farm/communications satellite (though I
-          will
-          put up a few scripts to get you started). If you intend to use this device for security purposes, only do so
-          if
-          you are aware of the risks involved.</p>
-
-        <h4>HOW DOES IT WORK?</h4>
-
-        <p>Z1FFER uses thermal noise from a resistor that is put through something known as a Modular Entropy Multiplier
-          architecture. This was invented by Peter Allan in 1999, and later reinvented by Bill Cox – the circuit is very
-          close to Bill Cox's design. It involves taking the small noise signal and doubling it repeatedly, causing it
-          to
-          grow exponentially. Once it crosses a threshold the voltage range is added and the result modulated – this has
-          a
-          subtractive effect that is repeated until the voltage falls below the threshold. The signal moves back and
-          forth
-          above and below the threshold in a random manner, which is converted into a random bitstream. For a more
-          detailed explanation, see the <a
-            href="/web/20221108002945/http://www.openrandom.org/resources/thermal/how_it_works.md">how it works</a>
-          page.
-          There are also instructions to <a
-            href="/web/20221108002945/http://www.openrandom.org/resources/thermal/diy.md">build your own</a>.</p>
-
-        <p>Z1FFER's ≤0.2.x used avalanche noise and a reversed biased P-N junction. <a
-            href="/web/20221108002945/http://www.openrandom.org/resources/avalanche/how_it_works.md">How it works</a>
-          and
-          <a href="/web/20221108002945/http://www.openrandom.org/resources/avalanche/diy.md">how to build your own</a>
-          are
-          still available on the <a href="/web/20221108002945/http://www.openrandom.org/resources">resources page</a>.
-        </p>
-
+      <div class="contain-to-grid sticky top-bar hide-for-small">
+        <nav class="top-bar hide-for-small">
+          <ul class="title-area">
+            <li class="name">
+              <h1><a href="/index">OPENRANDOM.ORG</a></h1>
+            </li>
+          </ul>
+          <section class="top-bar-section">
+            <ul class="left">
+              <li><a href="/index">ABOUT</a></li>
+              <li><a href="https://www.tindie.com/products/robseward/z1ffer/">BUY</a>
+              </li>
+              <li><a href="/Resources">RESOURCES</a></li>
+              <li><a href="/contact">CONTACT</a></li>
+              <!-- <li><a href="/blog">BLOG</a></li> -->
+            </ul>
+          </section>
+        </nav>
       </div>
-    </div>
-    <div id="footer">
-      © VHS Design LLC 2014-2016
+      <aside class="left-off-canvas-menu">
+        <ul class="off-canvas-list">
+          <li class="divider"></li>
+          <li><a href="/index">About</a></li>
+          <li class="divider"></li>
+          <li><a href="https://www.tindie.com/products/robseward/z1ffer/">Buy</a>
+          </li>
+          <li class="divider"></li>
+          <li><a href="/Resources">Resources</a></li>
+          <li class="divider"></li>
+          <li><a href="/contact">Contact</a></li>
+          <!-- <li class="divider"></li>
+    <li><a href="/blog">Blog</a></li> -->
+        </ul>
+      </aside>
+      <a class="exit-off-canvas"></a>
+      <div class="nav-divider"></div>
+
+      <div class="row">
+        <div class="small-12 large-12 columns" id="main-content-container">
+          <p>
+            <img alt="Ziffer head on far" data-at2x="/assets/ziffer-head-on-far@2x-749c3754ce1cc7f05a9838919c1eb505.jpg"
+              src="./images/ziffer-head-on-far@2x.jpg">
+            <br><br>
+          </p>
+
+          <h4>WHAT IS IT?</h4>
+
+          <p>Z1FFER is an open source hardware random number generator.</p>
+
+          <h4>WHAT IS IT FOR?</h4>
+
+          <p>Cryptography depends on high-quality random numbers that originate from a truly random source. When you go
+            to
+            your bank's website, for example, your computer must automatically generate a random "password" (known as a
+            key)
+            in order to create an encrypted connection with the bank (this is an oversimplification; <a
+              href="http://how2ssl.com/articles/introduction_to_ssl/">this</a>
+            website has more detailed information). Your computer could generate this key using an algorithm alone, but
+            the
+            problem with this approach is that if someone knows the algorithm, they can theoretically predict the key
+            and
+            crack the encryption between you and your bank. Therefore many computers have a hardware random number
+            generator
+            that uses a natural source of entropy to generate irreproducible randomness.</p>
+
+          <p>However, the Snowden documents revealed that the <a
+              href="http://www.nytimes.com/interactive/2013/09/05/us/documents-reveal-nsa-campaign-against-encryption.html">NSA
+              actively works to insert vulnerabilities into commercial encryption systems</a>, and one way of
+            undermining
+            encryption systems is to tamper with their random number generation. In 2005 the NSA published a random
+            number
+            generating algorithm with the recommendation that people use it in their systems. Later, security
+            researchers
+            revealed the NSA method allowed for the existence of a secret key, which, if known, would allow them to
+            predict
+            the output of the algorithm, which would in turn allow the NSA to break any encryption using their
+            recommended
+            algorithm.</p>
+
+          <p>Additionally, there is a long list of catastrophic security breaches that were due to malfunctioning (or
+            inadequate, or compromised) random number generators [<a
+              href="http://en.wikipedia.org/wiki/Random_number_generator_attack#Prominent_examples">link</a>,
+            <a
+              href="http://www.computerworld.com/s/article/9048438/Microsoft_confirms_that_XP_contains_random_number_generator_bug">link</a>,
+            <a href="http://esj.com/articles/2012/02/27/rsa-key-kerfuffle.aspx">link</a>,
+            <a href="https://freedom-to-tinker.com/blog/kroll/software-transparency-debian-openssl-bug/">link</a>].
+          </p>
+
+          <h4>HOW CAN Z1FFER HELP?</h4>
+
+          <p>Z1FFER is designed to deliver random data of the highest quality, have high throughput, and work with
+            Arduino.
+            It is an easily accessible platform for experimenting with entropy for security research and scientific
+            purposes. It is not designed to be self-monitoring or secure against side-channel attacks—things that
+            governments require for certification in military and government use. It is, however, intended to be the
+            first
+            step towards a system that is hardened and up to these standards. It’s also cheap.</p>
+
+          <h4>WHY OPEN SOURCE?</h4>
+
+          <p>The problem with closed-source random number generators is that they are hard to trust–we don’t know what
+            they
+            are doing. Z1FFER will be open to the scrutiny of the public. Weaknesses in my approach will hopefully be
+            pointed out and the device made better. The goal is to create a random number generator whose output is
+            impossible to predict and highly trusted.</p>
+
+          <h4>WHY SHOULD I GET ONE?</h4>
+
+          <p>Because you are cursed with the inclination to be interested in this kind of thing.</p>
+
+          <h4>WHY SHOULD I <em>NOT</em> GET ONE?</h4>
+
+          <p>Z1FFER is intended for developers and hobbyists. It is not particularly user-friendly; it essentially pours
+            a
+            stream of randomness into your computer via USB. It does not come with any software to help integrate this
+            randomness stream with the security systems in your computer/server farm/communications satellite (though I
+            will
+            put up a few scripts to get you started). If you intend to use this device for security purposes, only do so
+            if
+            you are aware of the risks involved.</p>
+
+          <h4>HOW DOES IT WORK?</h4>
+
+          <p>Z1FFER uses thermal noise from a resistor that is put through something known as a Modular Entropy
+            Multiplier
+            architecture. This was invented by Peter Allan in 1999, and later reinvented by Bill Cox – the circuit is
+            very
+            close to Bill Cox's design. It involves taking the small noise signal and doubling it repeatedly, causing it
+            to
+            grow exponentially. Once it crosses a threshold the voltage range is added and the result modulated – this
+            has
+            a
+            subtractive effect that is repeated until the voltage falls below the threshold. The signal moves back and
+            forth
+            above and below the threshold in a random manner, which is converted into a random bitstream. For a more
+            detailed explanation, see the <a
+              href="/web/20221108002945/http://www.openrandom.org/resources/thermal/how_it_works.md">how it works</a>
+            page.
+            There are also instructions to <a
+              href="/web/20221108002945/http://www.openrandom.org/resources/thermal/diy.md">build your own</a>.</p>
+
+          <p>Z1FFER's ≤0.2.x used avalanche noise and a reversed biased P-N junction. <a
+              href="/web/20221108002945/http://www.openrandom.org/resources/avalanche/how_it_works.md">How it works</a>
+            and
+            <a href="/web/20221108002945/http://www.openrandom.org/resources/avalanche/diy.md">how to build your own</a>
+            are
+            still available on the <a href="/web/20221108002945/http://www.openrandom.org/resources">resources page</a>.
+          </p>
+
+        </div>
+      </div>
+      <div id="footer">
+        © VHS Design LLC 2014-2016
+      </div>
     </div>
   </div>
 </body>
