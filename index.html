@@ -4,8 +4,81 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./style/style.css">
   <title>abc</title>
+  <style>
+    .top-bar {
+      overflow: hidden;
+      height: 45px;
+      line-height: 45px;
+      position: relative;
+      background: #444444;
+      margin-bottom: 0;
+    }
+
+    .contain-to-grid .top-bar {
+      max-width: 46.875rem;
+    }
+
+    .contain-to-grid .top-bar {
+      margin-bottom: 0;
+    }
+
+    .top-bar {
+      background-color: #444444;
+      height: 5.3rem;
+    }
+
+    @media only screen and (min-width: 40.063em) {
+      .top-bar .title-area {
+        float: left;
+      }
+    }
+
+    .top-bar .title-area {
+      position: relative;
+      margin: 0;
+    }
+
+    .top-bar ul {
+      margin-bottom: 0;
+      list-style: none;
+    }
+
+    .top-bar .name {
+      height: 45px;
+      margin-left: 1rem;
+      margin-top: 0.6rem;
+    }
+
+    .top-bar .name {
+      height: 45px;
+      margin: 0;
+      font-size: 16px;
+    }
+
+    @media only screen and (min-width: 40.063em) {
+      .top-bar-section ul {
+        width: auto;
+        height: auto !important;
+        display: inline;
+      }
+    }
+
+    .top-bar-section ul {
+      width: 100%;
+      height: auto;
+      display: block;
+      background: #333333;
+      font-size: 16px;
+      margin: 0;
+    }
+
+    @media only screen and (min-width: 40.063em) {
+      .top-bar-section ul li {
+        float: left;
+      }
+    }
+  </style>
 </head>
 
 <body>
