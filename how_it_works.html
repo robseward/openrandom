@@ -13,7 +13,7 @@
   <div class="off-canvas-wrap">
     <div class="inner-wrap">
       <nav class="tab-bar show-for-small">
-        <a <a class="left-off-canvas-toggle menu-icon" onclick="myFunction()" href="#">
+        <a class="left-off-canvas-toggle menu-icon" onclick="myFunction()" href="#">
           <span>OPENRANDOM.ORG</span>
         </a>
       </nav>
@@ -64,7 +64,12 @@
       </div>
     </div>
   </div>
-  <script src="./style/index.js"></script>
+  <script src="">
+    function myFunction() {
+      var element = document.getElementsByClassName("off-canvas-wrap");
+      element.classList.toggle("move-right");
+    }
+  </script>
 </body>
 
 </html>

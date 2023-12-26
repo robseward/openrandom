@@ -13,7 +13,7 @@
   <div class="off-canvas-wrap">
     <div class="inner-wrap">
       <nav class="tab-bar show-for-small">
-        <a <a class="left-off-canvas-toggle menu-icon" onclick="myFunction()" href="#">
+        <a class="left-off-canvas-toggle menu-icon" onclick="myFunction()" href="#">
           <span>OPENRANDOM.ORG</span>
         </a>
       </nav>
@@ -57,7 +57,7 @@
 
       <div class="row">
         <div class="small-12 large-12 columns" id="main-content-container">
-
+          <h2>SMD Diagram</h2>
           <p><img alt="ziffer breadboard" data-at2x="./images/v0.3.1_schematic@2x.png"
               src="./images/v0.3.1_schematic@2x.png">
           </p>
@@ -69,7 +69,12 @@
       </div>
     </div>
   </div>
-  <script src="./style/index.js"></script>
+  <script src="">
+    function myFunction() {
+      var element = document.getElementsByClassName("off-canvas-wrap");
+      element.classList.toggle("move-right");
+    }
+  </script>
 </body>
 
 </html>
