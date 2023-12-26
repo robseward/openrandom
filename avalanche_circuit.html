@@ -10,7 +10,7 @@
 </head>
 
 <body>
-  <div class="off-canvas-wrap">
+  <div class="off-canvas-wrap" id="offcanvas_for_mobile">
     <div class="inner-wrap">
       <nav class="tab-bar show-for-small">
         <a class="left-off-canvas-toggle menu-icon" onclick="myFunction()" href="#">
@@ -70,7 +70,7 @@
   </div>
   <script src="">
     function myFunction() {
-      var element = document.getElementsByClassName("off-canvas-wrap");
+      var element = document.getElementById("offcanvas_for_mobile");
       element.classList.toggle("move-right");
     }
   </script>
