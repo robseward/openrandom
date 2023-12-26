@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Libre+Baskerville:400,700">
+  <link rel="stylesheet" href="./style/style.css">
+  <title>OpenRandom.org | Getting started</title>
+</head>
+
+<body>
+  <div class="inner-wrap">
+    <nav class="tab-bar show-for-small">
+      <a class="left-off-canvas-toggle menu-icon" href="#">
+        <span>OPENRANDOM.ORG</span>
+      </a>
+    </nav>
+    <div class="contain-to-grid sticky top-bar hide-for-small">
+      <nav class="top-bar hide-for-small">
+        <ul class="title-area">
+          <li class="name">
+            <h1><a href="/home">OPENRANDOM.ORG</a></h1>
+          </li>
+        </ul>
+        <section class="top-bar-section">
+          <ul class="left">
+            <li><a href="/home">ABOUT</a></li>
+            <li><a
+                href="https://web.archive.org/web/20221004095212mp_/https://www.tindie.com/products/robseward/z1ffer/">BUY</a>
+            </li>
+            <li><a href="/Resources">RESOURCES</a></li>
+            <li><a href="/contact">CONTACT</a></li>
+            <!-- <li><a href="/blog">BLOG</a></li> -->
+          </ul>
+        </section>
+      </nav>
+    </div>
+    <aside class="left-off-canvas-menu">
+      <ul class="off-canvas-list">
+        <li class="divider"></li>
+        <li><a href="home">About</a></li>
+        <li class="divider"></li>
+        <li><a
+            href="https://web.archive.org/web/20221004095212mp_/https://www.tindie.com/products/robseward/z1ffer/">Buy</a>
+        </li>
+        <li class="divider"></li>
+        <li><a href="/Resources">Resources</a></li>
+        <li class="divider"></li>
+        <li><a href="/contact">Contact</a></li>
+        <!-- <li class="divider"></li>
+    <li><a href="/blog">Blog</a></li> -->
+      </ul>
+    </aside>
+    <a class="exit-off-canvas"></a>
+    <div class="nav-divider"></div>
+
+
+    <div class="row">
+      <div class="small-12 large-12 columns" id="main-content-container">
+
+        <h1>Getting Started</h1>
+
+        <p><strong>To get started quickly:</strong></p>
+
+        <ol>
+          <li>Download the <a
+              href="https://web.archive.org/web/20221004105326/https://github.com/robseward/Ziffer/blob/master/Arduino/v0.3.0_no_conditioning/v0.3.0_no_conditioning.ino">sample
+              code</a> and install it on an <a
+              href="https://web.archive.org/web/20221004105326/https://www.arduino.cc/en/Main/ArduinoBoardUno">Arduino
+              Uno</a>.</li>
+          <li>Download the <a
+              href="https://web.archive.org/web/20221004105326/https://github.com/robseward/Ziffer/archive/master.zip">Z1FFER
+              repository</a>, and navigate to <code>&lt;path to repo&gt;/Scripts/Record Data</code>. In the terminal
+            type <code>python record_data.py</code>. Answer the prompt asking you what serial port the Arduino is
+            connected to (something like <code>/dev/tty.usbmodem1411</code> on macOS). You should end up with a file
+            called <code>random.dat</code> which will contain somewhat random data (for higher entropy see
+            <em>Conditioned Output</em>).
+          </li>
+        </ol>
+
+        <p><strong>Conditioned output</strong></p>
+
+        <p>No hardware RNG is 100% random; even ones that have a theoretically truly random source, such as a
+          radioactive element, rely on sensors that induce order in the device’s output. As a solution raw TRNG output
+          is “conditioned” in order to create numbers of cryptographic quality. One way of doing this is to combine
+          bytes using cipher block chaining (CBC) mixed with some encryption. The sample code below uses AES-CBC-MAC,
+          which is recommended by <a
+            href="https://web.archive.org/web/20221004105326/http://csrc.nist.gov/publications/drafts/800-90/sp800-90b_second_draft.pdf">NIST
+            SP800-90B</a>.</p>
+
+        <p>This <a
+            href="https://web.archive.org/web/20221004105326/https://github.com/robseward/Ziffer/blob/master/Arduino/v0.3.0_conditioning/v0.3.0_conditioning.ino">Arduino
+            code</a> provides conditioned output. It combines several bytes using AES-CBC-MAC, and returns only the
+          final byte (the MAC), which has higher entropy than the raw data.</p>
+
+        <p><strong>Entropy output and health checks</strong></p>
+
+        <p>Z1FFER 0.3.X has less randomness (0.87 bits of entropy per byte) than many RNGs, including earlier versions
+          of Z1FFER (0.99 bits of entropy). However, in exchange, they are more reliable and more resistant to some
+          kinds of attack. Also, they consistently output this amount of entropy, which makes for a good way of checking
+          to see if the board is functioning properly. In an optimal setup, raw data would be streamed to a host machine
+          that would check the stream's health and condition it. However, if you want cryptographic-quality numbers
+          straight from Arduino, you can run the above conditioning sample code. Note that the extra computation slows
+          the output down substantially. If you want speed, you should perform the conditioning on the host machine.</p>
+
+        <h2>Troubleshooting</h2>
+
+        <p><strong>The Arduino code won't compile.</strong> The sample code here is optimized for <a
+            href="https://web.archive.org/web/20221004105326/https://www.arduino.cc/en/Main/ArduinoBoardUno">Arduino
+            Uno</a>. It uses pin registers to read data from the shield because they are substantially faster than
+          <code>pinRead()</code>. If you are using an Arduino that is not based on AVR microcontrollers, such as the
+          Arduino Zero, the lower-level code will not compile. If you rewrite the code using <code>pinRead()</code> send
+          it to me and I'll post it here.
+        </p>
+
+        <p><strong>The output isn't truly random.</strong> See my note above about conditioned output.</p>
+
+
+
+      </div>
+    </div>
+    <div id="footer">
+      © VHS Design LLC 2014-2016
+    </div>
+  </div>
+</body>
+
+</html>
